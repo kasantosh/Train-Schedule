@@ -12,6 +12,9 @@ var trainName;
 var destination;
 var trainTime;
 var frequency;
+var hour;
+var mins;
+var minsAway;
 $(document).ready(function() {
   $("#submit").on("click", function(e) {
     e.preventDefault();
@@ -31,10 +34,8 @@ function getinfo() {
   frequency = $("#frequency")
     .val()
     .trim();
-  //getting moment time format
 
-  //----------------------------
-  console.log(trainName, destination, trainTime, frequency);
+  //console.log(trainName, destination, trainTime, frequency);
 }
 
 function writetoDatabase() {
@@ -42,7 +43,10 @@ function writetoDatabase() {
     trainName: trainName,
     destination: destination,
     traintime: trainTime,
-    frequency: frequency
+    frequency: frequency,
+    hour: hour,
+    mins: mins,
+    minutesaway: minsAway
   });
 }
 
@@ -52,12 +56,38 @@ database.ref().on("child_added", function(snapshot) {
   var destination = sv.destination;
   var trainTime = sv.traintime;
   var frequency = sv.frequency;
+  //time calculation
+  //console.log(trainTime);
+  trainTime = trainTime.split(":");
+  //console.log(trainTime);
+  hour = parseInt(trainTime[0]);
+  mins = parseInt(trainTime[1]);
+  frequency = parseInt(frequency);
+  var totalmins = hour * 60 + mins;
+  minsAway = frequency % 60;
+  //console.log(totalmins);
+  totalmins = totalmins + frequency;
+  //console.log(totalmins);
+  mins = totalmins % 60;
+  //console.log(mins);
+  totalmins = totalmins - mins;
+  hour = totalmins / 60;
+  //hour = hour / 60;
+  hour = hour % 24;
+  //console.log(hour);
+  if (hour < 10) {
+    hour = "0" + hour;
+  }
+  if (mins < 10) {
+    mins = "0" + mins;
+  }
+  //----------------------------
   var row = $("<tr>");
   var rdtrainname = $("<td>").append(trainName);
   var rddestination = $("<td>").append(destination);
   var rdfrequency = $("<td>").append(frequency);
-  var rdnextarrival = $("<td>").append(trainTime);
-  var rdminutesaway = $("<td>").append("mins away");
+  var rdnextarrival = $("<td>").append(hour + ":" + mins);
+  var rdminutesaway = $("<td>").append(minsAway);
   row
     .append(rdtrainname)
     .append(rddestination)
