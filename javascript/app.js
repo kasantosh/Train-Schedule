@@ -32,7 +32,7 @@ function getinfo() {
     .val()
     .trim();
   //getting moment time format
-  trainTime = moment(trainTime._i);
+
   //----------------------------
   console.log(trainName, destination, trainTime, frequency);
 }
