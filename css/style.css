@@ -1,0 +1,25 @@
+body {
+  font-family: "Ubuntu", sans-serif;
+  line-height: 2;
+}
+
+#submit {
+  width: 200px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 98%;
+  margin: auto;
+}
+
+scheduletable {
+  padding: 10px;
+}
+table,
+th,
+td {
+  border-bottom: 1px solid black;
+  padding: 3px;
+  text-align: center;
+}

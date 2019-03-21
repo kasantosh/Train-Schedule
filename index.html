@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Train Schedule</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron text-center bg-info text-light">
+        <h1 class="display-4 font-weight-bold">Train Schedules</h1>
+        <p class="lead">
+          Please see schedule below for Train Arrivals
+        </p>
+      </div>
+      <div
+        id="trainscheduleDisplay"
+        class="border border-info rounded pb-4 mb-4"
+      >
+        <p class="bg-info pl-3 text-light">CURRENT TRAIN SCHEDULE</p>
+        <table id="scheduletable">
+          <thead>
+            <th>Train Name</th>
+            <th>Destination</th>
+            <th>Frequency (min)</th>
+            <th>Next Arrival</th>
+            <th>Minutes away</th>
+          </thead>
+        </table>
+      </div>
+      <div id="trainscheduleInput" class="border border-info rounded mb-0">
+        <p class="bg-info pl-3 text-light">ADD TRAIN</p>
+        <form class="form-group p-3">
+          <!--  <label class="bg-info">Train Schedule</label>  -->
+          <label>Train Name</label>
+          <input type="text" class="form-control" id="trainname" />
+          <label>Destination</label>
+          <input type="text" class="form-control" id="destination" />
+          <label>First Train Time (hh:mm) </label>
+          <input type="time" class="form-control" id="traintime" />
+          <label>Frequency (Mins) </label>
+          <input type="number" class="form-control" id="frequency" /><br />
+          <input
+            type="submit"
+            class="form-control  d-inline bg-info text-light"
+            id="submit"
+            value="submit"
+          />
+        </form>
+      </div>
+    </div>
+    <script type="text/javascript" src="./javascript/app.js"></script>
+  </body>
+</html>
