@@ -50,19 +50,41 @@
       </div>
       <div id="trainscheduleInput" class="border border-info rounded mb-0">
         <p class="bg-info pl-3 text-light">ADD TRAIN</p>
-        <form class="form-group p-3">
+        <form class="form-group p-3 mb-3">
           <!--  <label class="bg-info">Train Schedule</label>  -->
           <label>Train Name</label>
           <input type="text" class="form-control" id="trainname" />
           <label>Destination</label>
           <input type="text" class="form-control" id="destination" />
-          <label>First Train Time (hh:mm) </label>
-          <input type="time" class="form-control" id="traintime" />
+          <label>First Train Time (hh:mm) Military Time</label><br />
+          <!-- ----------------------------------------------------------- -->
+          <div id="timewrap">
+            <input
+              type="number"
+              min="00"
+              max="23"
+              id="hour"
+              placeholder="23"
+              required
+            />:
+            <input
+              type="number"
+              min="00"
+              max="59"
+              id="mins"
+              placeholder="59"
+              required
+            />
+          </div>
+          <div id="errormessage"></div>
+
+          <!-- <input type="time" class="form-control" id="traintime" /> -->
           <label>Frequency (Mins) </label>
-          <input type="number" class="form-control" id="frequency" /><br />
+          <input type="number" class="form-control" id="frequency" />
+          <div id="fieldcheck"></div>
           <input
             type="submit"
-            class="form-control  d-inline bg-info text-light"
+            class="form-control  d-inline bg-info text-light mt-3"
             id="submit"
             value="submit"
           />

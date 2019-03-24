@@ -23,3 +23,22 @@ td {
   padding: 3px;
   text-align: center;
 }
+
+#timewrap {
+  border: 1px solid #ccc;
+  width: 100%;
+  border-radius: 5px;
+}
+
+#hour,
+#mins {
+  border: none;
+  width: 40px;
+  text-align: center;
+}
+
+#errormessage,
+#fieldcheck {
+  font-size: 14px;
+  color: red;
+}
